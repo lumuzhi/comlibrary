@@ -57,9 +57,9 @@ static void test_thread_entry(void * paras)
 {
     while(1) {
         sem_wait(&local.sem);
-        if(rt_list_len(&local.save_list) {
+        if(rt_list_len(&local.save_list)) {
             test_node_t *node;
-            rt_list_for_each_entry(node, &local.save_list, test_node_t, list) {
+            rt_list_for_each_entry(node, &local.save_list, list) {
                 printf("node value:%d\n", node->value);
                 // 节点状态置0
                 node->state = 0;
@@ -71,7 +71,6 @@ static void test_thread_entry(void * paras)
                     rt_list_remove(&rm_node->list);
                 }
             }
-            
         }
     }
 }
